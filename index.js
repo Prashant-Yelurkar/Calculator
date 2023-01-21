@@ -276,6 +276,7 @@ function calculatation()
     if(Number.isNaN(solution[0]))
     {
         pre.innerText = "";
+        
     }
     else
     {
