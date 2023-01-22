@@ -246,15 +246,21 @@ function calculatation()
                 bracketcl = solution.indexOf(")");
                 if(bracketop==bracketcl-2)
                 {
-                    if(solution[bracketop-1]!="-" && solution[bracketop-1]!="+" && solution[bracketop-1]!="^"  && solution[bracketop-1]!="÷" &&  solution[bracketop-1]!="*"  && (solution.indexOf("(")!=0))
+                    if(solution[bracketop-1]!="-" && solution[bracketop-1]!="+" && solution[bracketop-1]!="^"  && solution[bracketop-1]!="÷" &&  solution[bracketop-1]!="*")
                     {
-                        
-                        solution[bracketop]="*";
-                        if(Number.isInteger(parseFloat(solution[bracketcl+1])))
-                            solution[bracketcl]="*";
+                        if((solution.indexOf("(")!=0))  
+                            solution[bracketop]="*";
                         else
+                            solution.splice(bracketop,1);
+
+                        if(Number.isInteger(Number(solution[bracketcl+1])))
+                        {
+                            solution[bracketcl]="*";
+                        }
+                        else
+                        {
                             solution.splice(bracketcl,1);
-                        
+                        }
                     }
                     else
                     {
